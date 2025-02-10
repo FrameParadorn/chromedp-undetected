@@ -5,7 +5,6 @@
 package chromedpundetected
 
 import (
-	"errors"
 	"os"
 	"os/exec"
 
@@ -15,7 +14,6 @@ import (
 )
 
 func headlessOpts() (opts []chromedp.ExecAllocatorOption, cleanup func() error, err error) {
-	return nil, nil, errors.New("headless mode not supported in darwin")
 
 	os.Setenv("ANGLE_DEFAULT_PLATFORM", "swiftshader")
 
