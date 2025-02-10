@@ -59,11 +59,11 @@ func New(config Config) (context.Context, context.CancelFunc, error) {
 	opts = append(opts, chromedp.UserDataDir(config.UserDataDir))
 	opts = append(opts, headlessOpts...)
 	opts = append(opts, config.ChromeFlags...)
-	
+
 	if config.ChromePath != "" {
 		opts = append(opts, chromedp.ExecPath(config.ChromePath))
 	}
-	
+
 	ctx := context.Background()
 	if config.Ctx != nil {
 		ctx = config.Ctx
@@ -157,7 +157,7 @@ func headlessFlag(config Config) ([]chromedp.ExecAllocatorOption, func() error, 
 		}
 
 		opts = append(opts,
-			// chromedp.Flag("headless", true),
+			chromedp.Flag("headless", true),
 			chromedp.Flag("window-size", "1920,1080"),
 			chromedp.Flag("start-maximized", true),
 			chromedp.Flag("no-sandbox", true),
